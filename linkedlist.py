@@ -22,7 +22,7 @@ class LinkedList:
     pass
 
   def __bool__(self):
-    pass
+    return not(self._head == None)
 
   def inserthead(self, data=None, node=None):
     if data:
@@ -40,9 +40,7 @@ class LinkedList:
 
   
   def inserttail(self, data=None, node=None):
-    if data and node:
-      # raise error
-    elif data:
+    if data:
       node = Node(data)
       self._tail._next = node
       node._next = None
