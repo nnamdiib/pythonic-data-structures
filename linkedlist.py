@@ -23,11 +23,9 @@ class LinkedList:
 
   def __bool__(self):
     pass
-    
+
   def inserthead(self, data=None, node=None):
-    if data and node:
-      # raise error
-    elif data:
+    if data:
       node = Node(data)
       node._next = self._head
       self._head = node
@@ -36,6 +34,7 @@ class LinkedList:
       self._head = node
     else:
       # raise error
+      pass
 
     self._size += 1
 
