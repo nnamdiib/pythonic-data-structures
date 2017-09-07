@@ -13,3 +13,14 @@ class Node:
       self._prev = prev
     if data:
       self._data = data
+
+  def __eq__(self, other):
+    equal = True
+    if self._next and other._next:
+      equal = equal and (self._next == other._next)
+    if self._prev and other._prev:
+      equal = equal and (self._prev == other._prev)
+    if self._data and other._data:
+      equal = equal and (self._data == other._data)
+
+    return equal

@@ -37,7 +37,6 @@ class LinkedList:
       pass
 
     self._size += 1
-
   
   def inserttail(self, data=None, node=None):
     if data:
