@@ -6,7 +6,7 @@ class Node:
   _prev = None
   _data = None
 
-  def __init__(self, _next=None, prev=None, data=None):
+  def __init__(self, data=None, _next=None, prev=None):
     if _next:
       self._next = _next
     if prev:

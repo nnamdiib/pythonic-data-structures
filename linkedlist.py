@@ -4,10 +4,23 @@ class LinkedList:
   _head = None
   _tail = None
   _size = 0
+  _double = False
 
-  def __init__(self, iterable=None):
+  def __init__(self, iterable=None, double=False):
+    _double = double
     if iterable:
-      pass
+      left = right = None
+      nodes = (Node(item) for item in iterable)
+      for n in nodes:
+        self._head = n if self.isempty() else self._head
+        right = n
+        if left:
+          left._next = right
+        if _double:
+          right._prev = left
+        left = right
+        self._size += 1
+      self._tail = n
 
   def __iter__(self):
     n = self._head
@@ -19,10 +32,18 @@ class LinkedList:
     return self._size
 
   def __eq__(self, other):
-    pass
+    if len(self) != len(other):
+      return False
+    for n1, n2 in zip(self, other):
+      if n1 != n2:
+        return False
+    return True
 
   def __bool__(self):
     return not(self._head == None)
+
+  def isempty(self):
+    return self._size == 0
 
   def inserthead(self, data=None, node=None):
     if data:
@@ -39,6 +60,10 @@ class LinkedList:
     self._size += 1
   
   def inserttail(self, data=None, node=None):
+    if _size == 0:
+      n = Node(data)
+      _tail = _head = n
+
     if data:
       node = Node(data)
       self._tail._next = node
@@ -49,6 +74,7 @@ class LinkedList:
       node._next = None
       self._tail = node
     else:
+      pass
       # raise error
 
     self._size += 1
@@ -63,6 +89,7 @@ class LinkedList:
 
   def iscycle(self):
     # returns True if a cycle exists in the LinkedList.
+    pass
 
   def getnode(pos=None, data=None):
     # both Ifs run if pos and data are not None
