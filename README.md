@@ -2,7 +2,7 @@
 
 As a learning experiment, I am leveraging the rich Python API to create and extend certain existing data structures like Linked Lists, Stacks and B-trees.
 
-I want it to be as simple as pythonic as possible, and support simple operatins like
+I want it to be as simple as pythonic as possible, and support operations like
 
 ```
 import LinkedList
