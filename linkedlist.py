@@ -54,8 +54,7 @@ class LinkedList:
       node._next = self._head
       self._head = node
     else:
-      # raise error
-      pass
+      raise TypeError("Provide either the data value or the Node object")
 
     self._size += 1
   
@@ -74,8 +73,7 @@ class LinkedList:
       node._next = None
       self._tail = node
     else:
-      pass
-      # raise error
+      raise TypeError("Provide either the data value or the Node object")
 
     self._size += 1
 
@@ -100,7 +98,7 @@ class LinkedList:
 
       if h1 == h2:
         return True
-    
+
   def getnode(pos=None, data=None):
     # both Ifs run if pos and data are not None
     # find more elegant solution.
