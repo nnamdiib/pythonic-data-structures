@@ -89,8 +89,18 @@ class LinkedList:
 
   def iscycle(self):
     # returns True if a cycle exists in the LinkedList.
-    pass
+    if self.isempty():
+      return False
 
+    h1 = h2 = self._head
+    
+    while h1 and h2:
+      h1 = self._next
+      h2 = self._next._next
+
+      if h1 == h2:
+        return True
+    
   def getnode(pos=None, data=None):
     # both Ifs run if pos and data are not None
     # find more elegant solution.
