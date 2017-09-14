@@ -7,7 +7,7 @@ class LinkedList:
   _double = False
 
   def __init__(self, iterable=None, double=False):
-    _double = double
+    self._double = double
     if iterable:
       left = right = None
       nodes = (Node(item) for item in iterable)
@@ -16,7 +16,7 @@ class LinkedList:
         right = n
         if left:
           left._next = right
-        if _double:
+        if self._double:
           right._prev = left
         left = right
         self._size += 1
@@ -59,22 +59,25 @@ class LinkedList:
     self._size += 1
   
   def inserttail(self, data=None, node=None):
-    if _size == 0:
+    if self._size == 0:
       n = Node(data)
-      _tail = _head = n
-
-    if data:
-      node = Node(data)
-      self._tail._next = node
-      node._next = None
-      self._tail = node
-    elif node:
-      self._tail._next = node
-      node._next = None
-      self._tail = node
+      self._tail = self._head = n
     else:
-      raise TypeError("Provide either the data value or the Node object")
-
+      if data:
+        node = Node(data)
+        self._tail._next = node
+        node._next = None
+        if self._double:
+          node._prev = self._tail
+        self._tail = node
+      elif node:
+        self._tail._next = node
+        node._next = None
+        if self._double:
+          node._prev = self._tail
+        self._tail = node
+      else:
+        raise TypeError("Provide either the data value or the Node object")
     self._size += 1
 
   def preinsert(self, target_node, a_node):
