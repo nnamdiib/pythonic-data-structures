@@ -5,5 +5,5 @@ l = LinkedList(iterable, double=True)
 
 l.inserttail("Ibeanusi")
 
-print(l._tail._data)
-print(l._head._data)
+print(l.tail.data)
+print(l.head.data)

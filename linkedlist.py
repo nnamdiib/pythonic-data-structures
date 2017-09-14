@@ -1,35 +1,35 @@
 from node import Node
 
 class LinkedList:
-  _head = None
-  _tail = None
-  _size = 0
-  _double = False
+  head = None
+  tail = None
+  size = 0
+  double = False
 
   def __init__(self, iterable=None, double=False):
-    self._double = double
+    self.double = double
     if iterable:
       left = right = None
       nodes = (Node(item) for item in iterable)
       for n in nodes:
-        self._head = n if self.isempty() else self._head
+        self.head = n if self.isempty() else self.head
         right = n
         if left:
-          left._next = right
-        if self._double:
-          right._prev = left
+          left.next = right
+        if self.double:
+          right.prev = left
         left = right
-        self._size += 1
-      self._tail = n
+        self.size += 1
+      self.tail = n
 
   def __iter__(self):
-    n = self._head
+    n = self.head
     while n:
       yield n
-      n = n._next
+      n = n.next
 
   def __len__(self):
-    return self._size
+    return self.size
 
   def __eq__(self, other):
     if len(self) != len(other):
@@ -40,45 +40,45 @@ class LinkedList:
     return True
 
   def __bool__(self):
-    return not(self._head == None)
+    return not(self.head == None)
 
   def isempty(self):
-    return self._size == 0
+    return self.size == 0
 
   def inserthead(self, data=None, node=None):
     if data:
       node = Node(data)
-      node._next = self._head
-      self._head = node
+      node.next = self.head
+      self.head = node
     elif node:
-      node._next = self._head
-      self._head = node
+      node.next = self.head
+      self.head = node
     else:
       raise TypeError("Provide either the data value or the Node object")
 
-    self._size += 1
+    self.size += 1
   
   def inserttail(self, data=None, node=None):
-    if self._size == 0:
+    if self.size == 0:
       n = Node(data)
-      self._tail = self._head = n
+      self.tail = self.head = n
     else:
       if data:
         node = Node(data)
-        self._tail._next = node
-        node._next = None
-        if self._double:
-          node._prev = self._tail
-        self._tail = node
+        self.tail.next = node
+        node.next = None
+        if self.double:
+          node.prev = self.tail
+        self.tail = node
       elif node:
-        self._tail._next = node
-        node._next = None
-        if self._double:
-          node._prev = self._tail
-        self._tail = node
+        self.tail.next = node
+        node.next = None
+        if self.double:
+          node.prev = self.tail
+        self.tail = node
       else:
         raise TypeError("Provide either the data value or the Node object")
-    self._size += 1
+    self.size += 1
 
   def preinsert(self, target_node, a_node):
     # Insert a_node before the target_node in a given linkedlist.
@@ -93,11 +93,11 @@ class LinkedList:
     if self.isempty():
       return False
 
-    h1 = h2 = self._head
+    h1 = h2 = self.head
     
     while h1 and h2:
-      h1 = self._next
-      h2 = self._next._next
+      h1 = self.next
+      h2 = self.next.next
 
       if h1 == h2:
         return True
@@ -107,21 +107,21 @@ class LinkedList:
     # find more elegant solution.
     n = None
     if pos:
-      if 0 <= pos <= self._size:
+      if 0 <= pos <= self.size:
         # get the ith node.
-        n = self._head
+        n = self.head
         while pos != 0:
-          n = n._next
+          n = n.next
           pos -= 1
       else:
         # raise error(Not enough nodes in linkedlist,pos to high)
         pass
 
     if data:
-      n = self._head
+      n = self.head
       while n:
-        if n._data == data:
+        if n.data == data:
           break
-        n = n._next
+        n = n.next
 
     return n
