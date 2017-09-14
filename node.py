@@ -2,24 +2,24 @@
 # That can be subclassed to create nodes for Stacks, LinkedLists, B-Trees, etc.
 
 class Node:
-  _next = None
-  _prev = None
-  _data = None
+  next = None
+  prev = None
+  data = None
 
-  def __init__(self, data=None, _next=None, prev=None):
-    if _next:
-      self._next = _next
+  def __init__(self, data=None, next=None, prev=None):
+    if next:
+      self.next = next
     if prev:
-      self._prev = prev
+      self.prev = prev
     if data:
-      self._data = data
+      self.data = data
 
   def __eq__(self, other):
     equal = True
-    if self._next or other._next:
-      equal = equal and (self._next == other._next)
-    if self._prev or other._prev:
-      equal = equal and (self._prev == other._prev)
-    if self._data or other._data:
-      equal = equal and (self._data == other._data)
+    if self.next or other.next:
+      equal = equal and (self.next == other.next)
+    if self.prev or other.prev:
+      equal = equal and (self.prev == other.prev)
+    if self.data or other.data:
+      equal = equal and (self.data == other.data)
     return equal
