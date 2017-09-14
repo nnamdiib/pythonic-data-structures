@@ -98,9 +98,10 @@ class LinkedList:
     while h1 and h2:
       h1 = self.next
       h2 = self.next.next
-
       if h1 == h2:
         return True
+        
+    return False
 
   def getnode(pos=None, data=None):
     n = None
