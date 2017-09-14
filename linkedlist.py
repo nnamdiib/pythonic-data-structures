@@ -135,5 +135,7 @@ class LinkedList:
         if n.data == data:
           break
         n = n.next
+    else:
+      raise TypeError("Provide either the position or the data in the node object")
 
     return n

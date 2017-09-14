@@ -20,7 +20,7 @@ for n in l:
 	print(n.data)
 
 h = l.getnode(2)
-l.preinsert(h, j)
+l.preinsert(5, j)
 print("*"*10)
 
 for n in l:
