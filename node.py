@@ -17,9 +17,9 @@ class Node:
   def __eq__(self, other):
     equal = True
     if self.next or other.next:
-      equal = equal and (self.next == other.next)
+      equal = equal and (self.next is other.next)
     if self.prev or other.prev:
-      equal = equal and (self.prev == other.prev)
+      equal = equal and (self.prev is other.prev)
     if self.data or other.data:
-      equal = equal and (self.data == other.data)
+      equal = equal and (self.data is other.data)
     return equal

@@ -40,7 +40,7 @@ class LinkedList:
     return True
 
   def __bool__(self):
-    return not(self.head == None)
+    return not(self.isempty())
 
   def isempty(self):
     return self.size == 0
@@ -82,11 +82,26 @@ class LinkedList:
 
   def preinsert(self, target_node, a_node):
     # Insert a_node before the target_node in a given linkedlist.
-    pass
+    for n in self:
+      if n.next == target_node:
+        a_node.next = n.next
+        if self.double:
+          a_node.prev = n
+          a_node.next.prev = a_node
+        n.next = a_node
+        break
 
   def postinsert(self, target_node, a_node):
-  # Insert a_node after the target_node in a given linkedlist.
-    pass
+    # Insert a_node after the target_node in a given linkedlist.
+    for n in self:
+      if n == target_node:
+        a_node.next = n.next
+        if self.double:
+          a_node.prev = n
+          a_node.next.prev = a_node
+        n.next = a_node
+        break
+
 
   def iscycle(self):
     # returns True if a cycle exists in the LinkedList.
@@ -100,13 +115,13 @@ class LinkedList:
       h2 = self.next.next
       if h1 == h2:
         return True
-        
+
     return False
 
-  def getnode(pos=None, data=None):
+  def getnode(self, pos=None, data=None):
     n = None
     if pos:
-      if 1 <= pos <= self.size:
+      if 1 <= pos <= len(self):
         # get the i'th node.
         n = self.head
         while pos != 1:
