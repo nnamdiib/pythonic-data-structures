@@ -103,21 +103,17 @@ class LinkedList:
         return True
 
   def getnode(pos=None, data=None):
-    # both Ifs run if pos and data are not None
-    # find more elegant solution.
     n = None
     if pos:
-      if 0 <= pos <= self.size:
-        # get the ith node.
+      if 1 <= pos <= self.size:
+        # get the i'th node.
         n = self.head
-        while pos != 0:
+        while pos != 1:
           n = n.next
           pos -= 1
       else:
-        # raise error(Not enough nodes in linkedlist,pos to high)
-        pass
-
-    if data:
+        raise TypeError("There are not that many nodes in the linked list")
+    elif data:
       n = self.head
       while n:
         if n.data == data:
