@@ -80,6 +80,8 @@ class LinkedList:
         raise TypeError("Provide either the data value or the Node object")
     self.size += 1
 
+  insert = inserttail
+
   def preinsert(self, target_node, a_node):
     # Insert a_node before the target_node in a given linkedlist.
     for n in self:
