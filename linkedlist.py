@@ -119,7 +119,6 @@ class LinkedList:
     return False
 
   def getnode(self, pos=None, data=None):
-    n = None
     if pos:
       if 1 <= pos <= len(self):
         # get the i'th node.
