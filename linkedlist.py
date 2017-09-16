@@ -42,6 +42,9 @@ class LinkedList:
   def __bool__(self):
     return not(self.isempty())
 
+  def __str__(self):
+    pass
+
   def isempty(self):
     return self.size == 0
 
