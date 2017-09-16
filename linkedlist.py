@@ -62,7 +62,7 @@ class LinkedList:
     self.size += 1
   
   def inserttail(self, data=None, node=None):
-    if self.size == 0:
+    if self.isempty():
       n = Node(data)
       self.tail = self.head = n
     else:
