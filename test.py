@@ -41,4 +41,3 @@ class TestLinkedList:
 
   def test_getnode():
     pass
-    

@@ -43,7 +43,7 @@ class LinkedList:
     return not(self.isempty())
 
   def __str__(self):
-    pass
+    return 'head({})...tail({})'.format(self.head.data, self.tail.data)
 
   def isempty(self):
     return self.size == 0
