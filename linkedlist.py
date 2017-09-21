@@ -1,4 +1,5 @@
 from node import Node
+from itertools import chain
 
 class LinkedList:
   head = None
@@ -9,6 +10,7 @@ class LinkedList:
   def __init__(self, iterable=None, double=False):
     self.double = double
     if iterable:
+      iterable = list(chain(*iterable))
       left = right = None
       nodes = (Node(item) for item in iterable)
       for n in nodes:

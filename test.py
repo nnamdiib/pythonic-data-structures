@@ -2,6 +2,10 @@ from linkedlist import LinkedList
 from node import Node
 
 iterable = ('my', 'name', 'is', 'nnamdi')
+h = [[1,2,3], 6]
+l=LinkedList(h)
+print(l)
+
 class TestLinkedList:
   singly = LinkedList(iterable)
   doubly = LinkedList(iterable, double=True)
