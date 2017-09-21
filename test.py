@@ -1,5 +1,5 @@
 from linkedlist import LinkedList
-from node import Node
+from node import LNode
 
 iterable = ('my', 'name', 'is', 'nnamdi')
 h = [[1,2,3], 6]
