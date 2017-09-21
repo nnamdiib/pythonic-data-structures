@@ -21,10 +21,10 @@ class Tree:
   def getnode():
     pass
 
-  def inorder():
-    pass
-
   def preorder():
+    pass
+    
+  def inorder():
     pass
 
   def postorder():
