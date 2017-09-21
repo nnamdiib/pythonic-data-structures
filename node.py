@@ -1,6 +1,7 @@
-# Contains the class definition for a general Node structure
-# That can be subclassed to create nodes for Stacks, LinkedLists, B-Trees, etc.
+# Contains the class definition for a general Node structures
+# For Stacks, LinkedLists, B-Trees, etc.
 
+# Node for Linked List
 class LNode:
   next = None
   prev = None
@@ -24,7 +25,7 @@ class LNode:
       equal = equal and (self.data is other.data)
     return equal
 
-
+# Node for Binary Trees
 class BNode:
   left = None
   right = None
