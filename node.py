@@ -1,11 +1,12 @@
 # Contains the class definition for a general Node structure
 # That can be subclassed to create nodes for Stacks, LinkedLists, B-Trees, etc.
 
-class Node:
+class LNode:
   next = None
   prev = None
   left = None
   right = None
+  parent = None
   data = None
 
   def __init__(self, data=None, next=None, prev=None):
