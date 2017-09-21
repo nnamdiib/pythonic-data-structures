@@ -21,9 +21,15 @@ class Tree:
   def getnode():
     pass
 
+  def minnode():
+    pass
+
+  def maxnode():
+    pass
+
   def preorder():
     pass
-    
+
   def inorder():
     pass
 
