@@ -4,6 +4,8 @@
 class Node:
   next = None
   prev = None
+  left = None
+  right = None
   data = None
 
   def __init__(self, data=None, next=None, prev=None):
@@ -23,3 +25,6 @@ class Node:
     if self.data or other.data:
       equal = equal and (self.data is other.data)
     return equal
+
+  def isleaf(self):
+    return not(self.left or self.right)
