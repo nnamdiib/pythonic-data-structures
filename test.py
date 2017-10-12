@@ -1,10 +1,18 @@
 from linkedlist import LinkedList
+from btree import Tree
 from listnode.node import Node
+from treenode.node import Node
 
 iterable = ('my', 'name', 'is', 'nnamdi')
 h = [[1,2,3], 6]
 l=LinkedList(h)
 print(l)
+
+iterable = [5,6,7]
+b = Tree(root=5)
+c = Tree(iterable)
+
+print(c.root.data)
 
 # class TestLinkedList:
 #   singly = LinkedList(iterable)
