@@ -5,26 +5,16 @@ class Tree:
   size = 0
   root = None
   leaves = []
+  visitednodes = []
 
-  def __init__(self, iterable=None, root=None):
+  def __init__(self, iterable=None):
     if iterable is None:
       iterable = []
     else:
       iterable = list(iterable)
-    if root and iterable:
-      assert(root in iterable)
-      self.insert(Node(root))
-      del iterable[ iterable.index(root) ]
-    elif root:
-      self.insert(Node(root))
-    elif iterable:
-      # default root is the first item
-      root = iterable[0]
-      self.insert(Node(root))
-      del iterable[0]
-      for v in iterable:
-        self.insert(Node(v))
 
+    for v in iterable:
+      self.insert(Node(data=v))
 
   # def __len__():
   #   pass
@@ -47,10 +37,16 @@ class Tree:
     node.parent = parent
     if not parent:
       self.root = node
+      print("I inserted Node(%d)"% node.data)
     elif node.data < parent.data:
       parent.left = node
+      print("I inserted Node(%d)"% node.data)
     else:
       parent.right = node
+      print("I inserted Node(%d)"% node.data)
+
+  def leaves(self):
+    pass
 
   def shake():
     pass
@@ -64,11 +60,29 @@ class Tree:
   def maxnode():
     pass
 
+  def traverse(self,preorder=False, inorder=False, postorder=False):
+    self.visitednodes = []
+    if preorder:
+      self.preorder(self.root)
+    elif inorder:
+      self.inorder(self.root)
+    elif postorder:
+      self.postorder(self.root)
+
+    return (node for node in self.visitednodes)
+
+
+
   def preorder():
     pass
 
-  def inorder():
-    pass
+  def inorder(self, root):
+    if root is None:
+      return
+
+    self.inorder(root.left)
+    self.visitednodes.append(root)
+    self.inorder(root.right)
 
   def postorder():
     pass

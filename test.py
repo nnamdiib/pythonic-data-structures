@@ -1,18 +1,26 @@
 from linkedlist import LinkedList
 from btree import Tree
-from listnode.node import Node
+#from listnode.node import Node
 from treenode.node import Node
 
-iterable = ('my', 'name', 'is', 'nnamdi')
-h = [[1,2,3], 6]
-l=LinkedList(h)
-print(l)
+# iterable = ('my', 'name', 'is', 'nnamdi')
+# h = [[1,2,3], 6]
+# l=LinkedList(h)
+# print(l)
 
-iterable = [5,6,7]
-b = Tree(root=5)
+iterable = [1,7,3,2,5,8,9,4]
+b = Tree()
 c = Tree(iterable)
 
 print(c.root.data)
+
+n = (Node(v) for v in [100,5,2,3,1,8])
+for x in n:
+  b.insert(x)
+
+g = [v.data for v in b.traverse(inorder=True)]
+print(g)
+
 
 # class TestLinkedList:
 #   singly = LinkedList(iterable)
