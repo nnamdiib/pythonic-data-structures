@@ -1,10 +1,10 @@
-# from linkedlist import LinkedList
-# from node import Lnode
+from linkedlist import LinkedList
+from listnode.node import Node
 
-# iterable = ('my', 'name', 'is', 'nnamdi')
-# h = [[1,2,3], 6]
-# l=LinkedList(h)
-# print(l)
+iterable = ('my', 'name', 'is', 'nnamdi')
+h = [[1,2,3], 6]
+l=LinkedList(h)
+print(l)
 
 # class TestLinkedList:
 #   singly = LinkedList(iterable)
@@ -45,5 +45,3 @@
 
 #   def test_getnode():
 #     pass
-
-from node import node

@@ -1,4 +1,4 @@
-from node import LNode
+from listnode.node import Node
 from itertools import chain
 
 class LinkedList:
@@ -11,7 +11,7 @@ class LinkedList:
     self.double = double
     if iterable:
       left = right = None
-      nodes = (LNode(item) for item in iterable)
+      nodes = (Node(item) for item in iterable)
       for n in nodes:
         self.head = n if self.isempty() else self.head
         right = n
@@ -51,24 +51,24 @@ class LinkedList:
 
   def inserthead(self, data=None, node=None):
     if data:
-      node = LNode(data)
+      node = Node(data)
       node.next = self.head
       self.head = node
     elif node:
       node.next = self.head
       self.head = node
     else:
-      raise TypeError("Provide either the data value or the LNode object")
+      raise TypeError("Provide either the data value or the Node object")
 
     self.size += 1
   
   def inserttail(self, data=None, node=None):
     if self.isempty():
-      n = LNode(data)
+      n = Node(data)
       self.tail = self.head = n
     else:
       if data:
-        node = LNode(data)
+        node = Node(data)
         self.tail.next = node
         node.next = None
         if self.double:
@@ -81,7 +81,7 @@ class LinkedList:
           node.prev = self.tail
         self.tail = node
       else:
-        raise TypeError("Provide either the data value or the LNode object")
+        raise TypeError("Provide either the data value or the Node object")
     self.size += 1
 
   insert = inserttail
