@@ -44,7 +44,7 @@ class Tree:
 
   def traverse(self, preorder=False, inorder=False, postorder=False):
     if not(preorder or inorder or postorder):
-      inorder = True
+      inorder = True # inroder traversal is default, if no flag is set.
 
     if preorder:
       return self.preorder(self.root)
