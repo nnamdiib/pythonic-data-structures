@@ -93,10 +93,14 @@ class Tree:
   def getnode():
     pass
 
-  def minnode():
-    pass
+  def minnode(self):
+    root = self.root
+    while root.left:
+      root = root.left
 
-  def maxnode(self, root):
+    return root
+
+  def maxnode(self):
     root = self.root
     while root.right:
       root = root.right
