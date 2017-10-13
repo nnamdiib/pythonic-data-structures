@@ -6,14 +6,10 @@ class Node:
   data = None
 
   def __init__(self, data=None, left=None, right=None, parent=None):
-    if data:
-      self.data = data
-    if left:
-      self.left = left
-    if right:
-      self.right = right
-    if parent:
-      self.parent = parent
+    self.data = data
+    self.left = left
+    self.right = right
+    self.parent = parent
 
   def isleaf(self):
     return not(self.left or self.right)
