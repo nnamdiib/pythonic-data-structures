@@ -40,7 +40,8 @@ d.traverse(postorder=True)
 
 # print(list(g.data for g in f.leaves()))
 
-for n in f.traverse(preorder=True):
+for n in f:
   print(n.data)
 
 print(len(f))
+

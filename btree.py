@@ -16,8 +16,8 @@ class Tree:
   def __len__(self):
     return self.size
 
-  # def __iter__():
-  #   pass
+  def __iter__(self):
+    return self.traverse()
 
   # def __str__():
   #   pass
