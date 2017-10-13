@@ -45,3 +45,4 @@ for n in f:
 
 print(len(f))
 
+print(d.maxnode(d.root).data)

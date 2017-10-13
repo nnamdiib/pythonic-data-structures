@@ -96,8 +96,11 @@ class Tree:
   def minnode():
     pass
 
-  def maxnode():
-    pass
+  def maxnode(self, root)
+    if root.right is None:
+      return root
+
+    return self.maxnode(root.right)
 
   def balance():
     pass
