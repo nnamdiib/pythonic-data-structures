@@ -37,51 +37,46 @@ class Tree:
     node.parent = parent
     if not parent:
       self.root = node
-      #print("I inserted Node(%d)"% node.data)
     elif node.data < parent.data:
       parent.left = node
-      #print("I inserted Node(%d)"% node.data)
     else:
       parent.right = node
-      #print("I inserted Node(%d)"% node.data)
 
   def traverse(self, preorder=False, inorder=False, postorder=False):
-    self.visitednodes = []
     if not(preorder or inorder or postorder):
       inorder = True
 
     if preorder:
-      self.preorder(self.root)
+      return self.preorder(self.root)
     elif inorder:
-      self.inorder(self.root)
+      return self.inorder(self.root)
     elif postorder:
-      self.postorder(self.root)
+      return self.postorder(self.root)
 
-    return iter(self.visitednodes)
 
   def preorder(self, root):
     if root is None:
       return
 
-    self.visitednodes.append(root)
-    self.preorder(root.left)
-    self.preorder(root.right)
+    yield root
+    yield from self.preorder(root.left)
+    yield from self.preorder(root.right)
 
   def inorder(self, root):
     if root is None:
       return
 
-    self.inorder(root.left)
-    self.visitednodes.append(root)
-    self.inorder(root.right)
+    yield from self.inorder(root.left)
+    yield root
+    yield from self.inorder(root.right)
 
   def postorder(self, root):
     if not root:
       return
 
-    self.postorder(root.left)
-    self.postorder(root.right)
-    self.visitednodes.append(root)
+    yield from self.postorder(root.left)
+    yield from self.postorder(root.right)
+    yield root
 
   def leaves(self):
     for node in self.traverse():

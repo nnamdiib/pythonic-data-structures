@@ -30,14 +30,16 @@ d.insert(c)
 
 d.traverse(preorder=True)
 d.traverse(postorder=True)
-print([g.data for g in d.traverse()])
-print([g.data for g in d.traverse(preorder=True)])
-print([g.data for g in d.traverse(postorder=True)])
+# print([g.data for g in d.traverse()])
+# print([g.data for g in d.traverse(preorder=True)])
+# print([g.data for g in d.traverse(postorder=True)])
 
-print([g.data for g in f.traverse()])
-print([g.data for g in f.traverse(preorder=True)])
-print([g.data for g in f.traverse(postorder=True)])
+# print([g.data for g in f.traverse()])
+# print([g.data for g in f.traverse(preorder=True)])
+# print([g.data for g in f.traverse(postorder=True)])
 
-print(list(g.data for g in f.leaves()))
+# print(list(g.data for g in f.leaves()))
 
+for n in f.traverse(preorder=True):
+  print(n.data)
 
