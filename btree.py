@@ -45,21 +45,6 @@ class Tree:
       parent.right = node
       #print("I inserted Node(%d)"% node.data)
 
-  def leaves(self):
-    pass
-
-  def shake():
-    pass
-
-  def getnode():
-    pass
-
-  def minnode():
-    pass
-
-  def maxnode():
-    pass
-
   def traverse(self, preorder=False, inorder=False, postorder=False):
     self.visitednodes = []
     if not(preorder or inorder or postorder):
@@ -97,6 +82,24 @@ class Tree:
     self.postorder(root.left)
     self.postorder(root.right)
     self.visitednodes.append(root)
+
+  def leaves(self):
+    for node in self.traverse():
+      if not(node.left or node.right):
+        yield node
+
+  def shake():
+    pass
+
+  def getnode():
+    pass
+
+  def minnode():
+    pass
+
+  def maxnode():
+    pass
+
 
   def balance():
     pass

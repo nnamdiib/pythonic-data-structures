@@ -38,4 +38,6 @@ print([g.data for g in f.traverse()])
 print([g.data for g in f.traverse(preorder=True)])
 print([g.data for g in f.traverse(postorder=True)])
 
+print(list(g.data for g in f.leaves()))
+
 
