@@ -40,12 +40,10 @@ d.traverse(postorder=True)
 
 # print(list(g.data for g in f.leaves()))
 
-for n in f:
-  print(n.isroot(), n.data)
 
-print(len(f))
+# print(len(f))
 
-print(d.shake().data)
+# print(d.shake().data)
 
-for n in f.traverse():
+for n in f.leaves():
   print(n.data, )

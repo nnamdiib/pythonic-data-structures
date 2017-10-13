@@ -101,11 +101,9 @@ class Tree:
     yield from self.postorder(root.right)
     yield root
 
-  # Generator function
+  # leaves(self) -> generator
   def leaves(self):
-    for node in self.traverse():
-      if not(node.left or node.right):
-        yield node
+    return (n for n in self.traverse() if not(n.left or n.right))
 
   def shake(self):
     # Like shaking an apple tree, and waiting for any apple
