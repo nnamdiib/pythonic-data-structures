@@ -5,12 +5,9 @@ class Node:
   data = None
 
   def __init__(self, data=None, next=None, prev=None):
-    if next:
-      self.next = next
-    if prev:
-      self.prev = prev
-    if data:
-      self.data = data
+    self.next = next
+    self.prev = prev
+    self.data = data
 
   def __eq__(self, other):
     equal = True
