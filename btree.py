@@ -1,11 +1,8 @@
 from treenode.node import Node
 
 class Tree:
-  height = 0
-  size = 0
   root = None
-  leaves = []
-  visitednodes = []
+  size = 0
 
   def __init__(self, iterable=None):
     if iterable is None:
@@ -41,6 +38,8 @@ class Tree:
       parent.left = node
     else:
       parent.right = node
+
+    self.size += 1
 
   def traverse(self, preorder=False, inorder=False, postorder=False):
     if not(preorder or inorder or postorder):

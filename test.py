@@ -43,3 +43,5 @@ d.traverse(postorder=True)
 for n in f.traverse(preorder=True):
   print(n.data)
 
+print(f.size)
+
