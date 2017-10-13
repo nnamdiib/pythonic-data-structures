@@ -45,4 +45,7 @@ for n in f:
 
 print(len(f))
 
-print(d.maxnode(d.root).data)
+print(d.shake().data)
+
+for n in f.levelorder(f.root):
+  print(n.data, )

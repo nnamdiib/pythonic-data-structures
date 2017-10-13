@@ -1,4 +1,5 @@
 from treenode.node import Node
+from collections import deque
 import random
 
 class Tree:
@@ -78,6 +79,21 @@ class Tree:
     yield from self.postorder(root.right)
     yield root
 
+  def levelorder(self, root):
+    q = deque()
+    if root:
+      q.append(root)
+
+    while len(q) != 0:
+      front = q.popleft()
+      yield front
+      if front.left:
+        q.append(front.left)
+      if front.right:
+        q.append(front.right)
+
+
+
   def leaves(self):
     for node in self.traverse():
       if not(node.left or node.right):
@@ -89,9 +105,6 @@ class Tree:
     nodes = [node for node in self.traverse()]
 
     return random.choice(nodes)
-
-  def getnode():
-    pass
 
   def minnode(self):
     root = self.root
