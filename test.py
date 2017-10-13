@@ -47,5 +47,5 @@ print(len(f))
 
 print(d.shake().data)
 
-for n in f.levelorder(f.root):
+for n in f.traverse():
   print(n.data, )

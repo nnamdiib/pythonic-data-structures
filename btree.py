@@ -21,6 +21,9 @@ class Tree:
   def __iter__(self):
     return self.traverse()
 
+  def __bool__(self):
+    return self.size != 0
+
   # def __str__():
   #   pass
 
@@ -43,10 +46,13 @@ class Tree:
 
     self.size += 1
 
-  def traverse(self, preorder=False, inorder=False, postorder=False):
-    if not(preorder or inorder or postorder):
-      inorder = True # inroder traversal is default, if no flag is set.
+  # Generator function
+  def traverse(self, levelorder=False, preorder=False, inorder=False, postorder=False):
+    if not(levelorder or preorder or inorder or postorder):
+      levelorder = True # leveloder traversal is default, if no flag is set.
 
+    if levelorder:
+      return self.levelorder(self.root)
     if preorder:
       return self.preorder(self.root)
     elif inorder:
@@ -54,31 +60,7 @@ class Tree:
     elif postorder:
       return self.postorder(self.root)
 
-
-  def preorder(self, root):
-    if root is None:
-      return
-
-    yield root
-    yield from self.preorder(root.left)
-    yield from self.preorder(root.right)
-
-  def inorder(self, root):
-    if root is None:
-      return
-
-    yield from self.inorder(root.left)
-    yield root
-    yield from self.inorder(root.right)
-
-  def postorder(self, root):
-    if not root:
-      return
-
-    yield from self.postorder(root.left)
-    yield from self.postorder(root.right)
-    yield root
-
+  # Generator function
   def levelorder(self, root):
     q = deque()
     if root:
@@ -92,8 +74,34 @@ class Tree:
       if front.right:
         q.append(front.right)
 
+  # Generator function
+  def preorder(self, root):
+    if root is None:
+      return
 
+    yield root
+    yield from self.preorder(root.left)
+    yield from self.preorder(root.right)
 
+  # Generator function
+  def inorder(self, root):
+    if root is None:
+      return
+
+    yield from self.inorder(root.left)
+    yield root
+    yield from self.inorder(root.right)
+
+  # Generator function
+  def postorder(self, root):
+    if not root:
+      return
+
+    yield from self.postorder(root.left)
+    yield from self.postorder(root.right)
+    yield root
+
+  # Generator function
   def leaves(self):
     for node in self.traverse():
       if not(node.left or node.right):
