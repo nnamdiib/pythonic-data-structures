@@ -13,8 +13,8 @@ class Tree:
     for v in iterable:
       self.insert(Node(data=v))
 
-  # def __len__():
-  #   pass
+  def __len__():
+    return self.size
 
   # def __iter__():
   #   pass
