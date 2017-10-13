@@ -62,6 +62,8 @@ class Tree:
 
   def traverse(self, preorder=False, inorder=False, postorder=False):
     self.visitednodes = []
+    if not(preorder or inorder or postorder):
+      inorder = True
 
     if preorder:
       self.preorder(self.root)
@@ -71,8 +73,6 @@ class Tree:
       self.postorder(self.root)
 
     return iter(self.visitednodes)
-
-
 
   def preorder(self, root):
     if root is None:
