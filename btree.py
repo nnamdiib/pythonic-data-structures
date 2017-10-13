@@ -1,4 +1,5 @@
 from treenode.node import Node
+import random
 
 class Tree:
   root = None
@@ -82,8 +83,12 @@ class Tree:
       if not(node.left or node.right):
         yield node
 
-  def shake():
-    pass
+  def shake(self):
+    # Like shaking an apple tree, and waiting for any apple
+    # to fall.
+    nodes = [node for node in self.traverse()]
+
+    return random.choice(nodes)
 
   def getnode():
     pass
