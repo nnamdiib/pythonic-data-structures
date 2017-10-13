@@ -13,7 +13,7 @@ class Tree:
     for v in iterable:
       self.insert(Node(data=v))
 
-  def __len__():
+  def __len__(self):
     return self.size
 
   # def __iter__():
