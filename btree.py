@@ -37,13 +37,13 @@ class Tree:
     node.parent = parent
     if not parent:
       self.root = node
-      print("I inserted Node(%d)"% node.data)
+      #print("I inserted Node(%d)"% node.data)
     elif node.data < parent.data:
       parent.left = node
-      print("I inserted Node(%d)"% node.data)
+      #print("I inserted Node(%d)"% node.data)
     else:
       parent.right = node
-      print("I inserted Node(%d)"% node.data)
+      #print("I inserted Node(%d)"% node.data)
 
   def leaves(self):
     pass
@@ -60,8 +60,9 @@ class Tree:
   def maxnode():
     pass
 
-  def traverse(self,preorder=False, inorder=False, postorder=False):
+  def traverse(self, preorder=False, inorder=False, postorder=False):
     self.visitednodes = []
+
     if preorder:
       self.preorder(self.root)
     elif inorder:
@@ -69,12 +70,17 @@ class Tree:
     elif postorder:
       self.postorder(self.root)
 
-    return (node for node in self.visitednodes)
+    return iter(self.visitednodes)
 
 
 
-  def preorder():
-    pass
+  def preorder(self, root):
+    if root is None:
+      return
+
+    self.visitednodes.append(root)
+    self.preorder(root.left)
+    self.preorder(root.right)
 
   def inorder(self, root):
     if root is None:
@@ -84,9 +90,13 @@ class Tree:
     self.visitednodes.append(root)
     self.inorder(root.right)
 
-  def postorder():
-    pass
+  def postorder(self, root):
+    if not root:
+      return
 
+    self.postorder(root.left)
+    self.postorder(root.right)
+    self.visitednodes.append(root)
 
   def balance():
     pass
