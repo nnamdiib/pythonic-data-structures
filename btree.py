@@ -11,7 +11,6 @@ class Tree:
       iterable = []
     else:
       iterable = list(iterable)
-
     for v in iterable:
       self.insert(Node(data=v))
 
@@ -43,7 +42,6 @@ class Tree:
       parent.left = node
     else:
       parent.right = node
-
     self.size += 1
 
   # Generator function
@@ -66,7 +64,6 @@ class Tree:
     q = deque()
     if root:
       q.append(root)
-
     while len(q) != 0:
       front = q.popleft()
       yield front
@@ -79,7 +76,7 @@ class Tree:
   def preorder(self, root):
     if root is None:
       return
-
+      
     yield root
     yield from self.preorder(root.left)
     yield from self.preorder(root.right)
