@@ -47,8 +47,9 @@ class Tree:
     self.size += 1
 
   # Generator function
-  def traverse(self, levelorder=False, preorder=False, inorder=False, postorder=False):
-    if not(levelorder or preorder or inorder or postorder):
+  def traverse(self, preorder=False, inorder=False, postorder=False):
+    levelorder = False
+    if not(preorder or inorder or postorder):
       levelorder = True # leveloder traversal is default, if no flag is set.
 
     if levelorder:
