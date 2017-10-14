@@ -141,7 +141,6 @@ class Tree:
     # Like shaking an apple tree, and waiting for any apple
     # to fall.
     nodes = [node for node in self.traverse()]
-
     return random.choice(nodes)
 
   def minnode(self, root=None):
@@ -149,14 +148,12 @@ class Tree:
       root = self.root
     while root.left:
       root = root.left
-
     return root
 
   def maxnode(self):
     root = self.root
     while root.right:
       root = root.right
-
     return root
 
   # def isempty(self):
