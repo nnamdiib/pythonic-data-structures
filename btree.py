@@ -23,10 +23,42 @@ class Tree:
   def __bool__(self):
     return self.size != 0
 
-  # def __str__():
-  #   pass
+  def delete(self, node):
+    ## Check if tree is empty
+    if not self:
+      raise ValueError("Cannot Delete from empty tree")
 
-      
+    ## Case #1 -> node to be deleted has no children.
+    if node.isleaf():
+      if node == self.root:
+        self.root = None
+      elif node == node.parent.left:
+        node.parent.left = None
+      else:
+        node.parent.right = None
+      self.size -= 1
+
+    ## Case #2 -> node to be deleted has exactly 1 child
+    #  XOR, baby.
+    elif bool(node.left) ^ bool(node.right):
+      subtree = node.left if node.left else node.right
+      if node == self.root:
+        self.root = subtree
+        node.left = None
+        node.right = None
+      elif node.parent.left is node:
+        node.parent.left = subtree
+      else:
+        node.parent.right = subtree
+      self.size -= 1
+
+    ## Case #3 -> node to be deleted has 2 children :(
+    else:
+      right_subtree_min = self.minnode(node.right)
+      if node == self.root:
+        self.root.data = right_subtree_min.data
+      node.data = right_subtree_min.data
+      self.delete(right_subtree_min)
 
   def insert(self, node):
     n = self.root
@@ -112,8 +144,9 @@ class Tree:
 
     return random.choice(nodes)
 
-  def minnode(self):
-    root = self.root
+  def minnode(self, root=None):
+    if not root:
+      root = self.root
     while root.left:
       root = root.left
 
@@ -125,6 +158,9 @@ class Tree:
       root = root.right
 
     return root
+
+  # def isempty(self):
+  #   return self.size == 0
 
   def balance():
     pass
