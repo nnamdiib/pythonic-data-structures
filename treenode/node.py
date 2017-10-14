@@ -23,6 +23,9 @@ class Node:
       equal = equal and (self.data is other.data)
     return equal
 
+  def __bool__(self):
+    return bool(self.left or self.right or parent or self.data)
+
   def isleaf(self):
     return not(self.left or self.right)
 

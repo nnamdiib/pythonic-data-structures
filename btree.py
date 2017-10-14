@@ -76,7 +76,7 @@ class Tree:
   def preorder(self, root):
     if root is None:
       return
-      
+
     yield root
     yield from self.preorder(root.left)
     yield from self.preorder(root.right)
@@ -125,9 +125,6 @@ class Tree:
     return root
 
   def balance():
-    pass
-
-  def delete():
     pass
 
   def invert():
