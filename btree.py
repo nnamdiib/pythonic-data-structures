@@ -103,7 +103,7 @@ class Tree:
 
   # leaves(self) -> generator
   def leaves(self):
-    return (n for n in self.traverse() if not(n.left or n.right))
+    return (n for n in self.traverse() if n.isleaf())
 
   def shake(self):
     # Like shaking an apple tree, and waiting for any apple
