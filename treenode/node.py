@@ -26,6 +26,9 @@ class Node:
   def __bool__(self):
     return bool(self.left or self.right or parent or self.data)
 
+  def __xor__(self, other):
+    return bool(self) != bool(other)
+
   def isleaf(self):
     return not(self.left or self.right)
 

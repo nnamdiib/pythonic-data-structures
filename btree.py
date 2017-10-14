@@ -26,6 +26,8 @@ class Tree:
   # def __str__():
   #   pass
 
+      
+
   def insert(self, node):
     n = self.root
     parent = None
