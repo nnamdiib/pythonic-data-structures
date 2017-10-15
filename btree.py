@@ -150,8 +150,9 @@ class Tree:
       root = root.left
     return root
 
-  def maxnode(self):
-    root = self.root
+  def maxnode(self, root=None):
+    if not root:
+      root = self.root
     while root.right:
       root = root.right
     return root
