@@ -69,7 +69,7 @@ class Tree:
       else:
         n = n.right
     node.parent = parent
-    if not parent:
+    if parent is None:
       self.root = node
     elif node.data < parent.data:
       parent.left = node
