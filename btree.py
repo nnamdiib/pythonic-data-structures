@@ -44,9 +44,8 @@ class Tree:
       subtree = node.left if node.left else node.right
       if node == self.root:
         self.root = subtree
-        node.left = None
-        node.right = None
-      elif node.parent.left is node:
+        node.left = node.right = None
+      elif node == node.parent.left:
         node.parent.left = subtree
       else:
         node.parent.right = subtree
