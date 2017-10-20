@@ -136,6 +136,21 @@ class Tree:
   def leaves(self):
     return (n for n in self.traverse() if n.isleaf())
 
+  def height(self, root=None):
+    if not root:
+      root = self.root
+    tree_height = 0
+    for leaf in self.leaves():
+      h = 0
+      n = leaf
+      while n != root:
+        h += 1
+        n = n.parent
+      tree_height = max(tree_height, h)
+
+    return tree_height
+
+
   def shake(self):
     # Like shaking an apple tree, and waiting for any apple
     # to fall.
