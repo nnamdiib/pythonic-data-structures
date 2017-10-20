@@ -1,12 +1,11 @@
 # Pythonic Data Structures
 
-As a learning experiment, I am leveraging the rich Python API to create and extend certain existing data structures like Linked Lists, Stacks and B-trees.
+As a learning experiment, I am leveraging the rich Python API to create and extend certain existing data structures like Linked Lists and Binary Search Trees.
 
 I want it to be as simple as pythonic as possible, and support operations like
 
 ```
 import LinkedList
-import Stack
 
 iterable = ('this', 'is', 'an', 'example')
 
