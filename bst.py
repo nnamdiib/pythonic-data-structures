@@ -137,6 +137,9 @@ class Tree:
     return (n for n in self.traverse() if n.isleaf())
 
   def height(self, root=None):
+    # average time complexity for this algorithm is O(n^2)
+    # But Space complexity is constant: O(1)
+    # Altenative algorithm is O(n) time and O(n) space    
     if not root:
       root = self.root
     tree_height = 0
