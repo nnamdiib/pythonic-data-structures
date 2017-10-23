@@ -19,7 +19,6 @@ class Tree:
 
   def __iter__(self):
     return self.traverse()
-
   def __bool__(self):
     return self.size != 0
 
@@ -150,9 +149,7 @@ class Tree:
         h += 1
         n = n.parent
       tree_height = max(tree_height, h)
-
     return tree_height
-
 
   def shake(self):
     # Like shaking an apple tree, and waiting for any apple
@@ -173,9 +170,6 @@ class Tree:
     while root.right:
       root = root.right
     return root
-
-  # def isempty(self):
-  #   return self.size == 0
 
   def balance():
     pass
