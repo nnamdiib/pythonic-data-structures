@@ -171,8 +171,16 @@ class Tree:
       root = root.right
     return root
 
-  def balance():
-    pass
+  def isbalanced(self, node=None):
+    if not node:
+      node = self.root
+
+    return abs(self.height(node.left) - self.height(node.right))
+
+  def balance(self, root=None):
+    if not root:
+      root = self.root
+
 
   def invert():
     pass
