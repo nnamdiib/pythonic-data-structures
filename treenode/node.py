@@ -4,6 +4,7 @@ class Node:
   right = None
   parent = None
   data = None
+  balancefactor = 0
 
   def __init__(self, data=None, left=None, right=None, parent=None):
     self.data = data
