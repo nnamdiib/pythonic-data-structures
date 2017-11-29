@@ -133,19 +133,26 @@ class Tree:
 
   # leaves(self) -> generator
   def leaves(self):
-    return (n for n in self.traverse() if n.isleaf())
+    return self.leavesfromnode(self.root)
 
-  def height(self, root=None):
+  def leavesfromnode(self, node):
+    return (n for n in self.levelorder(node) if n.isleaf())
+
+  def height(self):
+    return self.heightfromnode(self.root)
+
+  def heightfromnode(self, node):
     # average time complexity for this algorithm is O(n^2)
     # But Space complexity is constant: O(1)
     # Altenative algorithm is O(n) time and O(n) space    
-    if not root:
-      root = self.root
     tree_height = 0
-    for leaf in self.leaves():
+    if not node:
+      return tree_height
+    
+    for leaf in self.leavesfromnode(node):
       h = 0
       n = leaf
-      while n != root:
+      while n != node:
         h += 1
         n = n.parent
       tree_height = max(tree_height, h)
@@ -175,12 +182,27 @@ class Tree:
     if not node:
       node = self.root
 
-    return abs(self.height(node.left) - self.height(node.right))
+    return abs(self.height(node.left) - self.height(node.right)) > 1
 
   def balance(self, root=None):
     if not root:
       root = self.root
+    nodes = [n for n in self.levelorder(root)]
+    if self.heightfromnode(root.right) > self.heightfromnode(root.left):
+      new_root = self.minnode(root.right).data
+    else:
+      new_root = self.maxnode(root.left).data
 
+    balanced_tree = Tree([new_root])
+    print("NEW root info ", new_root)
+    print("balance tree info", balanced_tree, balanced_tree.root, balanced_tree.root.data)
+    print("*"*10)
+    for n in nodes:
+      print("*******", n, n.data)
+      if n != new_root:
+        balanced_tree.insert(n)
+
+    return balanced_tree.root
 
   def invert():
     pass

@@ -99,15 +99,12 @@ class LinkedList:
 
   def postinsert(self, target_node, a_node):
     # Insert a_node after the target_node in a given linkedlist.
-    for n in self:
-      if n == target_node:
-        a_node.next = n.next
-        if self.double:
-          a_node.prev = n
-          a_node.next.prev = a_node
-        n.next = a_node
-        break
+    a_node.next = target_node.next
+    target_node.next = a_node
 
+    if self.double:
+      a_node.next.prev = a_node
+      a_node.prev = target_node
 
   def iscycle(self):
     # returns True if a cycle exists in the LinkedList.
