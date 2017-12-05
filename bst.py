@@ -185,24 +185,7 @@ class Tree:
     return abs(self.height(node.left) - self.height(node.right)) > 1
 
   def balance(self, root=None):
-    if not root:
-      root = self.root
-    nodes = [n for n in self.levelorder(root)]
-    if self.heightfromnode(root.right) > self.heightfromnode(root.left):
-      new_root = self.minnode(root.right).data
-    else:
-      new_root = self.maxnode(root.left).data
-
-    balanced_tree = Tree([new_root])
-    print("NEW root info ", new_root)
-    print("balance tree info", balanced_tree, balanced_tree.root, balanced_tree.root.data)
-    print("*"*10)
-    for n in nodes:
-      print("*******", n, n.data)
-      if n != new_root:
-        balanced_tree.insert(n)
-
-    return balanced_tree.root
+    pass
 
   def invert():
     pass
