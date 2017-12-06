@@ -21,7 +21,16 @@ class Heap:
     pass
 
   def bubble_up(self, node):
-    pass
+    if self.min_:
+      while node.data < node.parent.data:
+        temp = node.data
+        node.data = node.parent.data
+        node.parent.data = temp
+    elif self.max_:
+      while node.data > node.parent.data:
+        temp = node.data
+        node.data = node.parent.data
+        node.parent.data = temp
 
   def delete(self, item):
     pass
