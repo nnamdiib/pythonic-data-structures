@@ -21,8 +21,6 @@ class Tree:
   def isempty(self):
     return self.size == 0
 
-
-
   # Generator function
   def levelorder(self, root):
     q = deque()
@@ -35,12 +33,3 @@ class Tree:
         q.append(front.left)
       if front.right:
         q.append(front.right)
-
-  # Generator function
-  def preorder(self, root):
-    if root is None:
-      return
-
-    yield root
-    yield from self.preorder(root.left)
-    yield from self.preorder(root.right)
