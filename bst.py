@@ -2,7 +2,7 @@ from treenode.node import Node
 from collections import deque
 import random
 
-class Tree:
+class BST:
   root = None
   size = 0
 
