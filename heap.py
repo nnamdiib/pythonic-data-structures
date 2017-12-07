@@ -70,14 +70,18 @@ class Heap:
   def delete(self, node):
     if len(self) < 2:
       return
+
     bottom_node = list(self.leaves())[-1]
-    node.data = replace_node.data
+    node.data = bottom_node.data
+
     if bottom_node.parent.left == bottom_node:
       bottom_node.parent.left = None
     else:
       bottom_node.parent.right = None
+
     bottom_node.parent = None
     self.size -= 1
+    
     bubble_down(node)
 
   def bubble_down(self, item):
