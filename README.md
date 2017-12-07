@@ -7,24 +7,14 @@ I want it to be as simple as pythonic as possible.
 
 ## Table of Contents
 
-- [Linked Lists](https://github.com/nnamdiib/pythonic-data-structures#linked-list)
-- [Classic Algorithms](https://github.com/karan/Projects#classic-algorithms)
-- [Graph](https://github.com/karan/Projects#graph)
-- [Data Structures](https://github.com/karan/Projects#data-structures)
-- [Text](https://github.com/karan/Projects#text)
-- [Networking](https://github.com/karan/Projects#networking)
-- [Classes](https://github.com/karan/Projects#classes)
-- [Threading](https://github.com/karan/Projects#threading)
-- [Web](https://github.com/karan/Projects#web)
-- [Files](https://github.com/karan/Projects#files)
-- [Databases](https://github.com/karan/Projects#databases)
-- [Graphics and Multimedia](https://github.com/karan/Projects#graphics-and-multimedia)
-- [Security](https://github.com/karan/Projects#security)
+- [Linked List](https://github.com/nnamdiib/pythonic-data-structures#linked-list)
+- [Heap](https://github.com/nnamdiib/pythonic-data-structures#heap)
+- [Binary Search Tree](https://github.com/nnamdiib/pythonic-data-structures#binary-search-tree)
 
 
 All tree data structures will inherit from the Tree superclass in tree.py
 
-Linked Lists
+Linked List
 ------------
 
 #### Object creation and inbuilt operations
