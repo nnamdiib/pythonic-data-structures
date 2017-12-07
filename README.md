@@ -44,6 +44,78 @@ for node in list2:
   print(node.data)
 ```
 
+Heap
+--------
+Create a min heap or a max heap:
+```python
+from heap import Heap
+
+items = [4, 1, 2, 8, 0]
+
+max_heap = Heap(items, heap_type='max') # Create a max heap.
+min_heap = Heap(items, heap_type='min') # Create a min heap.
+another_min_heap = Heap(items) # no heap_type specified, default is 'min'.
+
+len(min_heap) # --> 5
+
+print(max_heap.root)  # --> 8
+print(min_heap.root)  # --> 0
+```
+
+Extract:
+```python
+# The extract() method returns the root of the min or max heap.
+# The method also deletes the root and performs a bubble_down or sinkdown
+# operation to maintain Heap property.
+
+min_heap.extract()
+max_heap.extract()
+
+```
+
+If you want to return the root element without deleting it, simply use:
+```python
+max_heap.root
+min_heap.root
+```
+
+Insertion and Deletion:
+After every insert, the heap performs a bubble-up operation to maintain the heap property.
+After every delete, the heap perfomrs a sink-down or bubble-down operation to maintain heap property.
+```python
+from heap import Heap
+h = Heap() # creates a min heap by default
+
+h.insert(100)
+h.insert(10)
+h.insert(50)
+h.insert(0)
+
+print(len(h)) # --> 4
+print(h.root) # --> 0
+
+for node in h:
+  if node.data == 100:
+    h.delete(node)
+
+print(len(h)) # --> 3
+
+```
+
+Traversal:
+The Tree superclass contains the levelorder() traversal method which Heap class inherits. The python __iter__
+uses levelorder() to visit every node in a Heap object (And indeed, another other subclass or Tree)
+```python
+# This is the preferred way to iterate over the nodes.
+for node in min_heap:
+  print(node.data)
+
+# I will discourage you from using this, though its still correct.
+for n in max_heap.levelorder():
+  print(n.data)
+```
+
+
 Binary Search Tree
 -----------------------
 The binary search tree is implemented using Node class in treenode.
