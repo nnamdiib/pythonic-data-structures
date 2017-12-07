@@ -5,7 +5,7 @@ As a learning experiment, I am leveraging the rich Python API to create and exte
 I want it to be as simple as pythonic as possible.
 
 ##### Table of Contents  
-[Headers](#headers)  
+[Headers](#Linked List)  
 [Emphasis](#emphasis)  
 ...snip...    
 <a name="headers"/>
@@ -18,8 +18,8 @@ So far, I have implemented the following:
 
 All tree data structures will inherit from the Tree superclass in tree.py
 
-## Example Usages:
-### Using the linked list:
+## Exampless:
+### Linked List:
 
 #### Object creation and inbuilt operations
 
