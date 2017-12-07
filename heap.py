@@ -26,8 +26,13 @@ class Heap:
     return self.levelorder()
 
   def extract(self):
-    return self.root
-
+    if self.isempty():
+      return self.root
+    else:
+      root = self.root
+      self.delete(self.root)
+      return root
+      
   def insert(self, node):
     if self.size == 0:
       self.root = node
@@ -80,3 +85,6 @@ class Heap:
 
   def leaves(self):
     return (n for n in self.levelorder(root) if n.isleaf())
+
+  def isempty(self):
+    return self.size == 0
