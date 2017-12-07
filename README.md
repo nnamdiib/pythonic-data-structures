@@ -24,7 +24,7 @@ I want it to be as simple as pythonic as possible.
 
 All tree data structures will inherit from the Tree superclass in tree.py
 
-LinkedLists
+Linked Lists
 ------------
 
 #### Object creation and inbuilt operations
