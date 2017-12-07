@@ -13,8 +13,7 @@ class Heap:
     elif heap_type == 'min':
       self.MIN = True
     else:
-      # Raise an error of incorrect param
-      pass
+      raise ValueError("Heap type must be either 'min' or 'max' ")
     if iterable:
       for item in iterable:
         self.insert(item)
