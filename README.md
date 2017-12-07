@@ -7,7 +7,7 @@ I want it to be as simple as pythonic as possible.
 
 ## Table of Contents
 
-- [Linked Lists](https://github.com/nnamdi/pythonic-data-structures#linkedlist)
+- [Linked Lists](https://github.com/nnamdi/pythonic-data-structures#linked-list)
 - [Classic Algorithms](https://github.com/karan/Projects#classic-algorithms)
 - [Graph](https://github.com/karan/Projects#graph)
 - [Data Structures](https://github.com/karan/Projects#data-structures)
