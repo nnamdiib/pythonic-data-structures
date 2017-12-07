@@ -2,24 +2,43 @@
 
 As a learning experiment, I am leveraging the rich Python API to create and extend certain existing data structures like Linked Lists and Binary Search Trees.
 
-I want it to be as simple as pythonic as possible, and support operations like
+I want it to be as simple as pythonic as possible, and support operations like len(), iter() and bool().
+
+## Implemented Data Structures
+So far, I have implemented the following:
+* Binary Search Trees
+* Heaps
+* Linked List
+
+All tree data structures will inherit from the Tree superclass in tree.py
+
+## Example Usages:
+### Using the linked list:
+
+#### Object creation and inbuilt operations
 
 ```
 import LinkedList
 
 iterable = ('this', 'is', 'an', 'example')
 
-singly = LinkedList(iterable)
-doubly = LinkedList(iterable, double=True) # Create a doubly linked list.
+list1 = LinkedList(iterable)
+list2 = LinkedList(iterable, double=True) # Create a doubly linked list.
+
+print( list1.head, list2.tail ) # print head and tail of singly and doubly linked lists respectively.
+
+size1 = len(list1)
+size2 = len(list2)
+
 ```
 
-Also,  the data structures will be behave like native python objects. Therefore they will respond to methods like len() or iter().
-```
-size = len(singly)
-print(size)
+#### Traversal Methods
+Traversal is done using pythonic generator expressions. The __iter__ method is overriden to yield each node in the linked list.
 
-# They should support iteration like any native python iterable
-for node in doubly:
+```
+list_nodes = (node for node in list1) # A Genertor object is returned.
+
+for node in list2:
   print(node.data)
 ```
 
