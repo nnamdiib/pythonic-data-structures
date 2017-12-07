@@ -81,11 +81,23 @@ class Heap:
 
     bottom_node.parent = None
     self.size -= 1
-    
-    bubble_down(node)
 
-  def bubble_down(self, item):
-    pass
+    self.bubble_down(node)
+
+  def bubble_down(self, node):
+    if len(self) < 2:
+      return
+
+    if self.min_:
+      while (node.left.data < node.data) or (node.right.data < node.data):
+        replacer = node.left if node.left.data < node.right.data else node.right
+        temp = node.data
+        node.data = replacer.data
+        replacer.data = temp
+        if replacer == node.left:
+          node = node.left
+        else:
+          node = node.right
 
   def get_available_spot(self):
     for node in self:
