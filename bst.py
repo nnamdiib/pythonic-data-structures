@@ -1,10 +1,9 @@
 from treenode.node import Node
+from tree import Tree
 from collections import deque
 import random
 
-class BST:
-  root = None
-  size = 0
+class BST(Tree):
 
   def __init__(self, iterable=None):
     if iterable is None:
@@ -13,14 +12,6 @@ class BST:
       iterable = list(iterable)
     for v in iterable:
       self.insert(Node(data=v))
-
-  def __len__(self):
-    return self.size
-
-  def __iter__(self):
-    return self.traverse()
-  def __bool__(self):
-    return self.size != 0
 
   def delete(self, node):
     ## Check if tree is empty
@@ -83,26 +74,13 @@ class BST:
       levelorder = True # leveloder traversal is default, if no flag is set.
 
     if levelorder:
-      return self.levelorder(self.root)
+      return self.levelorder(self.root) # Inherited from Tree superclass.
     if preorder:
       return self.preorder(self.root)
     elif inorder:
       return self.inorder(self.root)
     elif postorder:
       return self.postorder(self.root)
-
-  # Generator function
-  def levelorder(self, root):
-    q = deque()
-    if root:
-      q.append(root)
-    while len(q) != 0:
-      front = q.popleft()
-      yield front
-      if front.left:
-        q.append(front.left)
-      if front.right:
-        q.append(front.right)
 
   # Generator function
   def preorder(self, root):
@@ -130,10 +108,6 @@ class BST:
     yield from self.postorder(root.left)
     yield from self.postorder(root.right)
     yield root
-
-  # leaves(self) -> generator
-  def leaves(self):
-    return self.leavesfromnode(self.root)
 
   def leavesfromnode(self, node):
     return (n for n in self.levelorder(node) if n.isleaf())
