@@ -50,7 +50,7 @@ class Heap:
   def bubble_up(self, node):
     if len(self) < 2:
       return
-    
+
     # The while conditions below exploit python's Lazy evaluation principle
     # Is there a better way to implement this method
     # without relying on a language implementation detail?
@@ -67,8 +67,18 @@ class Heap:
         node.parent.data = temp
         node = node.parent
 
-  def delete(self, item):
-    pass
+  def delete(self, node):
+    if len(self) < 2:
+      return
+    bottom_node = list(self.leaves())[-1]
+    node.data = replace_node.data
+    if bottom_node.parent.left == bottom_node:
+      bottom_node.parent.left = None
+    else:
+      bottom_node.parent.right = None
+    bottom_node.parent = None
+    self.size -= 1
+    bubble_down(node)
 
   def bubble_down(self, item):
     pass
@@ -92,7 +102,7 @@ class Heap:
         q.append(front.right)
 
   def leaves(self):
-    return (n for n in self.levelorder(root) if n.isleaf())
+    return (n for n in self if n.isleaf())
 
   def isempty(self):
     return self.size == 0
