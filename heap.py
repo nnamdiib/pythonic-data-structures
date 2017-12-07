@@ -10,7 +10,7 @@ class Heap:
   def __init__(self, iterable=None, type='max'):
     if iterable:
       for item in iterable:
-        self.insert(item)
+        self.insert(Node(item))
 
   def __len__(self):
     return self.size
@@ -18,8 +18,19 @@ class Heap:
   def extract(self):
     return self.root-0
 
-  def insert(self, item):
-    pass
+  def insert(self, node):
+    if self.size == 0:
+      self.root = node
+    else:
+      node_with_1_child = self.get_available_spot()
+      if not node_with_1_child.left:
+        node_with_1_child.left = node
+      else:
+        node_with_1_child.right = node
+    node.parent = node_with_1_child
+    self.bubble_up(node)
+    self.size += 1
+
 
   def bubble_up(self, node):
     if self.min_:
