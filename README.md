@@ -2,7 +2,13 @@
 
 As a learning experiment, I am leveraging the rich Python API to create and extend certain existing data structures like Linked Lists and Binary Search Trees.
 
-I want it to be as simple as pythonic as possible, and support operations like len(), iter() and bool().
+I want it to be as simple as pythonic as possible.
+
+##### Table of Contents  
+[Headers](#headers)  
+[Emphasis](#emphasis)  
+...snip...    
+<a name="headers"/>
 
 ## Implemented Data Structures
 So far, I have implemented the following:
