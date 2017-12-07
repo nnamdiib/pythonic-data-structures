@@ -17,13 +17,13 @@ class Heap:
       pass
     if iterable:
       for item in iterable:
-        self.insert(Node(item))
+        self.insert(item)
 
   def __len__(self):
     return self.size
 
   def __iter__(self):
-    return self.levelorder()
+    return self.levelorder(self.root)
 
   def extract(self):
     if self.isempty():
@@ -32,8 +32,9 @@ class Heap:
       root = self.root
       self.delete(self.root)
       return root
-      
-  def insert(self, node):
+
+  def insert(self, item):
+    node = Node(item)
     if self.size == 0:
       self.root = node
     else:
@@ -42,7 +43,8 @@ class Heap:
         node_with_1_child.left = node
       else:
         node_with_1_child.right = node
-    node.parent = node_with_1_child
+      node.parent = node_with_1_child
+    print("Node to be inserted is", node)
     self.bubble_up(node)
     self.size += 1
 
@@ -67,7 +69,7 @@ class Heap:
 
   def get_available_spot(self):
     for node in self.levelorder():
-      if node.left ^ node.right:
+      if not(node.left and node.right):
         return node
 
   # Generator function
