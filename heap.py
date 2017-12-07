@@ -1,9 +1,8 @@
 from treenode.node import Node
 from collections import deque
+from tree import Tree
 
-class Heap:
-  root = None
-  size = 0
+class Heap(Tree):
   MIN = False
   MAX = False
 
@@ -17,12 +16,6 @@ class Heap:
     if iterable:
       for item in iterable:
         self.insert(item)
-
-  def __len__(self):
-    return self.size
-
-  def __iter__(self):
-    return self.levelorder(self.root)
 
   def extract(self):
     if self.isempty():
@@ -115,22 +108,3 @@ class Heap:
     for node in self:
       if not(node.left and node.right):
         return node
-
-  # Generator function
-  def levelorder(self, root):
-    q = deque()
-    if root:
-      q.append(root)
-    while len(q) != 0:
-      front = q.popleft()
-      yield front
-      if front.left:
-        q.append(front.left)
-      if front.right:
-        q.append(front.right)
-
-  def leaves(self):
-    return (n for n in self if n.isleaf())
-
-  def isempty(self):
-    return self.size == 0

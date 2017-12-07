@@ -1,3 +1,4 @@
+from collections import deque
 class Tree:
   root = None
   size = 0
@@ -10,7 +11,7 @@ class Tree:
 
   def __iter__(self):
     return self.levelorder(self.root)
-    
+
   # Generator function
   def levelorder(self, root):
     q = deque()
