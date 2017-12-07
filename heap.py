@@ -47,23 +47,25 @@ class Heap:
     self.size += 1 # Increase size before you bubble up!
     self.bubble_up(node)
 
-
   def bubble_up(self, node):
-    if len(self) > 1:
-      if self.min_:
-        while node.data < node.parent.data:
-          print("Node 1:", node.data)
-          print("Node 2:", node.data)
-          temp = node.data
-          node.data = node.parent.data
-          node.parent.data = temp
-          node = node.parent
-      elif self.max_:
-        while node.data > node.parent.data:
-          temp = node.data
-          node.data = node.parent.data
-          node.parent.data = temp
-          node = node.parent
+    if len(self) < 2:
+      return
+    
+    # The while conditions below exploit python's Lazy evaluation principle
+    # Is there a better way to implement this method
+    # without relying on a language implementation detail?
+    if self.min_:
+      while (node.parent) and (node.data < node.parent.data):
+        temp = node.data
+        node.data = node.parent.data
+        node.parent.data = temp
+        node = node.parent
+    elif self.max_:
+      while (node.parent) and (node.data > node.parent.data):
+        temp = node.data
+        node.data = node.parent.data
+        node.parent.data = temp
+        node = node.parent
 
   def delete(self, item):
     pass
@@ -72,7 +74,7 @@ class Heap:
     pass
 
   def get_available_spot(self):
-    for node in self.levelorder():
+    for node in self:
       if not(node.left and node.right):
         return node
 
