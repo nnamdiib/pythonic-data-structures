@@ -7,7 +7,7 @@ class Heap:
   min_ = False
   max_ = False
 
-  def __init__(self, iterable=None, heap_type='max'):
+  def __init__(self, iterable=None, heap_type='min'):
     if heap_type == 'max':
       self.max_ = True
     elif heap_type == 'min':
@@ -44,22 +44,26 @@ class Heap:
       else:
         node_with_1_child.right = node
       node.parent = node_with_1_child
-    print("Node to be inserted is", node)
+    self.size += 1 # Increase size before you bubble up!
     self.bubble_up(node)
-    self.size += 1
 
 
   def bubble_up(self, node):
-    if self.min_:
-      while node.data < node.parent.data:
-        temp = node.data
-        node.data = node.parent.data
-        node.parent.data = temp
-    elif self.max_:
-      while node.data > node.parent.data:
-        temp = node.data
-        node.data = node.parent.data
-        node.parent.data = temp
+    if len(self) > 1:
+      if self.min_:
+        while node.data < node.parent.data:
+          print("Node 1:", node.data)
+          print("Node 2:", node.data)
+          temp = node.data
+          node.data = node.parent.data
+          node.parent.data = temp
+          node = node.parent
+      elif self.max_:
+        while node.data > node.parent.data:
+          temp = node.data
+          node.data = node.parent.data
+          node.parent.data = temp
+          node = node.parent
 
   def delete(self, item):
     pass
