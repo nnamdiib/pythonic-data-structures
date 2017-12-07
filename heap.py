@@ -22,6 +22,9 @@ class Heap:
   def __len__(self):
     return self.size
 
+  def __iter__(self):
+    return self.levelorder()
+
   def extract(self):
     return self.root
 
