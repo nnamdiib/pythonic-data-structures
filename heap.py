@@ -87,6 +87,9 @@ class Heap:
     if len(self) < 2:
       return
 
+    # The while conditions below exploit python's Lazy evaluation principle
+    # Is there a better way to implement this method
+    # without relying on a language implementation detail?
     if self.MIN:
       while (node.left and node.left.data < node.data) or (node.right and node.right.data < node.data):
         replacer = node.left if node.left.data < node.right.data else node.right
