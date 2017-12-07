@@ -4,14 +4,14 @@ from collections import deque
 class Heap:
   root = None
   size = 0
-  min_ = False
-  max_ = False
+  MIN = False
+  MAX = False
 
   def __init__(self, iterable=None, heap_type='min'):
     if heap_type == 'max':
-      self.max_ = True
+      self.MAX = True
     elif heap_type == 'min':
-      self.min_ = True
+      self.MIN = True
     else:
       # Raise an error of incorrect param
       pass
@@ -54,13 +54,13 @@ class Heap:
     # The while conditions below exploit python's Lazy evaluation principle
     # Is there a better way to implement this method
     # without relying on a language implementation detail?
-    if self.min_:
+    if self.MIN:
       while (node.parent) and (node.data < node.parent.data):
         temp = node.data
         node.data = node.parent.data
         node.parent.data = temp
         node = node.parent
-    elif self.max_:
+    elif self.MAX:
       while (node.parent) and (node.data > node.parent.data):
         temp = node.data
         node.data = node.parent.data
@@ -88,9 +88,19 @@ class Heap:
     if len(self) < 2:
       return
 
-    if self.min_:
-      while (node.left.data < node.data) or (node.right.data < node.data):
+    if self.MIN:
+      while (node.left and node.left.data < node.data) or (node.right and node.right.data < node.data):
         replacer = node.left if node.left.data < node.right.data else node.right
+        temp = node.data
+        node.data = replacer.data
+        replacer.data = temp
+        if replacer == node.left:
+          node = node.left
+        else:
+          node = node.right
+    elif self.MAX:
+      while (node.left and node.left.data > node.data) or (node.right and node.right.data > node.data):
+        replacer = node.left if node.left.data > node.right.data else node.right
         temp = node.data
         node.data = replacer.data
         replacer.data = temp
