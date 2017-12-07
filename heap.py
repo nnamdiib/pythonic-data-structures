@@ -1,4 +1,5 @@
 from treenode.node import Node
+from collections import deque
 
 class Heap:
   root = None
