@@ -4,22 +4,28 @@ As a learning experiment, I am leveraging the rich Python API to create and exte
 
 I want it to be as simple as pythonic as possible.
 
-##### Table of Contents  
-[Headers](#LinkedList)  
-[Emphasis](#emphasis)  
-...snip...    
-<a name="headers"/>
 
-## Implemented Data Structures
-So far, I have implemented the following:
-* Binary Search Trees
-* Heaps
-* Linked List
+## Table of Contents
+
+- [Linked Lists](https://github.com/nnamdi/pythonic-data-structures#)
+- [Classic Algorithms](https://github.com/karan/Projects#classic-algorithms)
+- [Graph](https://github.com/karan/Projects#graph)
+- [Data Structures](https://github.com/karan/Projects#data-structures)
+- [Text](https://github.com/karan/Projects#text)
+- [Networking](https://github.com/karan/Projects#networking)
+- [Classes](https://github.com/karan/Projects#classes)
+- [Threading](https://github.com/karan/Projects#threading)
+- [Web](https://github.com/karan/Projects#web)
+- [Files](https://github.com/karan/Projects#files)
+- [Databases](https://github.com/karan/Projects#databases)
+- [Graphics and Multimedia](https://github.com/karan/Projects#graphics-and-multimedia)
+- [Security](https://github.com/karan/Projects#security)
+
 
 All tree data structures will inherit from the Tree superclass in tree.py
 
-## Exampless:
-### LinkedList:
+LinkedLists
+------------
 
 #### Object creation and inbuilt operations
 
