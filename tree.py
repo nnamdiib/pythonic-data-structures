@@ -12,6 +12,17 @@ class Tree:
   def __iter__(self):
     return self.levelorder(self.root)
 
+  def __bool__(self):
+    return len(self) != 0
+
+  def leaves(self):
+    return (n for n in self if n.isleaf())
+
+  def isempty(self):
+    return self.size == 0
+
+
+
   # Generator function
   def levelorder(self, root):
     q = deque()
@@ -25,8 +36,11 @@ class Tree:
       if front.right:
         q.append(front.right)
 
-  def leaves(self):
-    return (n for n in self if n.isleaf())
+  # Generator function
+  def preorder(self, root):
+    if root is None:
+      return
 
-  def isempty(self):
-    return self.size == 0
+    yield root
+    yield from self.preorder(root.left)
+    yield from self.preorder(root.right)
