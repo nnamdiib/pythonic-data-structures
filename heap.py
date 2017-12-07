@@ -7,7 +7,7 @@ class Heap:
   MIN = False
   MAX = False
 
-  def __init__(self, iterable=None, heap_type='min'):
+  def __init__(self, iterable=None, heap_type='min', max_size=None):
     if heap_type == 'max':
       self.MAX = True
     elif heap_type == 'min':
