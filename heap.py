@@ -7,7 +7,14 @@ class Heap:
   min_ = False
   max_ = False
 
-  def __init__(self, iterable=None, type='max'):
+  def __init__(self, iterable=None, heap_type='max'):
+    if heap_type == 'max':
+      self.max_ = True
+    elif heap_type == 'min':
+      self.min_ = True
+    else:
+      # Raise an error of incorrect param
+      pass
     if iterable:
       for item in iterable:
         self.insert(Node(item))
@@ -16,7 +23,7 @@ class Heap:
     return self.size
 
   def extract(self):
-    return self.root-0
+    return self.root
 
   def insert(self, node):
     if self.size == 0:
