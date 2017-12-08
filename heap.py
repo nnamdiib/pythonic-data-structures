@@ -20,6 +20,11 @@ class Heap(Tree):
       for item in iterable:
         self.insert(item)
 
+  def __str__(self):
+    heap_type = '[Min Heap]' if self.MIN else '[Max Heap]'
+    description = '%s with %d elements.' %(heap_type, len(self))
+    return description
+
   def extract(self):
     if self.isempty():
       return self.root
