@@ -5,14 +5,17 @@ from tree import Tree
 class Heap(Tree):
   MIN = False
   MAX = False
+  heap_size = None
 
-  def __init__(self, iterable=None, heap_type='min', max_size=None):
+  def __init__(self, iterable=None, heap_type='min', heap_size=None):
     if heap_type == 'max':
       self.MAX = True
     elif heap_type == 'min':
       self.MIN = True
     else:
       raise ValueError("Heap type must be either 'min' or 'max' ")
+    if heap_size:
+      self.heap_size = heap_size
     if iterable:
       for item in iterable:
         self.insert(item)
