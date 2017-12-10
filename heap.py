@@ -47,26 +47,6 @@ class Heap(Tree):
     self.size += 1 # Increase size before you bubble up!
     self.bubble_up(node)
 
-  def bubble_up(self, node):
-    if len(self) < 2:
-      return
-
-    # The while conditions below exploit python's Lazy evaluation principle
-    # Is there a better way to implement this method
-    # without relying on a language implementation detail?
-    if self.MIN:
-      while (node.parent) and (node.data < node.parent.data):
-        temp = node.data
-        node.data = node.parent.data
-        node.parent.data = temp
-        node = node.parent
-    elif self.MAX:
-      while (node.parent) and (node.data > node.parent.data):
-        temp = node.data
-        node.data = node.parent.data
-        node.parent.data = temp
-        node = node.parent
-
   def delete(self, node):
     if self.isempty():
       return
@@ -83,34 +63,6 @@ class Heap(Tree):
 
     self.bubble_down(node)
 
-  def bubble_down(self, node):
-    if len(self) < 2:
-      return
-
-    # The while conditions below exploit python's Lazy evaluation principle
-    # Is there a better way to implement this method
-    # without relying on a language implementation detail?
-    if self.MIN:
-      while (node.left and node.left.data < node.data) or (node.right and node.right.data < node.data):
-        replacer = node.left if node.left.data < node.right.data else node.right
-        temp = node.data
-        node.data = replacer.data
-        replacer.data = temp
-        if replacer == node.left:
-          node = node.left
-        else:
-          node = node.right
-    elif self.MAX:
-      while (node.left and node.left.data > node.data) or (node.right and node.right.data > node.data):
-        replacer = node.left if node.left.data > node.right.data else node.right
-        temp = node.data
-        node.data = replacer.data
-        replacer.data = temp
-        if replacer == node.left:
-          node = node.left
-        else:
-          node = node.right
-
   def get_available_spot(self):
     for node in self:
       if not(node.left and node.right):
@@ -120,3 +72,65 @@ class MaxHeap(Heap):
 
   def __init__(self, iterable=None, heap_size=None):
     super.__init__(iterable=None, heap_type='max', heap_size=None)
+
+  def bubble_up(self, node):
+    if len(self) < 2:
+      return
+    # The while conditions below exploit python's Lazy evaluation principle
+    # Is there a better way to implement this method
+    # without relying on a language implementation detail?
+    while (node.parent) and (node.data > node.parent.data):
+      temp = node.data
+      node.data = node.parent.data
+      node.parent.data = temp
+      node = node.parent
+
+    def bubble_down(self, node):
+    if len(self) < 2:
+      return
+    # The while conditions below exploit python's Lazy evaluation principle
+    # Is there a better way to implement this method
+    # without relying on a language implementation detail?
+    while (node.left and node.left.data > node.data) or (node.right and node.right.data > node.data):
+      replacer = node.left if node.left.data > node.right.data else node.right
+      temp = node.data
+      node.data = replacer.data
+      replacer.data = temp
+      if replacer == node.left:
+        node = node.left
+      else:
+        node = node.right
+
+
+class MinHeap(Heap):
+
+  def __init__(self, iterable=None, heap_size=None):
+    super.__init__(iterable=None, heap_type='min', heap_size=None)
+
+  def bubble_up(self, node):
+    if len(self) < 2:
+      return
+    # The while conditions below exploit python's Lazy evaluation principle
+    # Is there a better way to implement this method
+    # without relying on a language implementation detail?
+    while (node.parent) and (node.data < node.parent.data):
+      temp = node.data
+      node.data = node.parent.data
+      node.parent.data = temp
+      node = node.parent
+
+    def bubble_down(self, node):
+    if len(self) < 2:
+      return
+    # The while conditions below exploit python's Lazy evaluation principle
+    # Is there a better way to implement this method
+    # without relying on a language implementation detail?
+    while (node.left and node.left.data < node.data) or (node.right and node.right.data < node.data):
+      replacer = node.left if node.left.data < node.right.data else node.right
+      temp = node.data
+      node.data = replacer.data
+      replacer.data = temp
+      if replacer == node.left:
+        node = node.left
+      else:
+        node = node.right
