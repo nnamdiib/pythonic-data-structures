@@ -115,3 +115,8 @@ class Heap(Tree):
     for node in self:
       if not(node.left and node.right):
         return node
+
+class MaxHeap(Heap):
+
+  def __init__(self, iterable=None, heap_size=None):
+    super.__init__(iterable=None, heap_type='max', heap_size=None)
