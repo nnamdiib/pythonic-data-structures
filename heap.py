@@ -68,9 +68,8 @@ class Heap(Tree):
         node = node.parent
 
   def delete(self, node):
-    if len(self) < 2:
+    if self.isempty():
       return
-
     bottom_node = list(self.leaves())[-1]
     node.data = bottom_node.data
 
