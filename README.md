@@ -10,6 +10,8 @@ I want it to be as simple as pythonic as possible.
 - [Linked List](https://github.com/nnamdiib/pythonic-data-structures#linked-list)
 - [Heap](https://github.com/nnamdiib/pythonic-data-structures#heap)
 - [Binary Search Tree](https://github.com/nnamdiib/pythonic-data-structures#binary-search-tree)
+- [Things I learned](https://github.com/nnamdiib/pythonic-data-structures#things-i-learned)
+
 
 
 All tree data structures will inherit from the Tree superclass in tree.py
@@ -167,6 +169,16 @@ tree.delete(root_node)
 len(tree) # --> 3
 
 ```
+
+Things I learned
+---------------------
+- Object-oriented implementations of data structures such as these would have been easier using a language like C++.
+- Python has a weird way of declaring private properties and methods. I avoied it entirely.
+- A language like C++ would have simplified this private vs public issue.
+- Implementing code to balance a binary search tree is not as easy as I thought!
+- OOP is cool cos it can easily model real world objects. Etc. Every MinHeap is a Heap, and every heap is just a special Tree.
+  So one can create a MinHeap class that inherits from Heap, which in turn inherits from a Tree class. Neat!
+  
 ## Authors
 
 * **Ibeanusi Nnamdi** - [github](https://github.com/nnamdiib)
