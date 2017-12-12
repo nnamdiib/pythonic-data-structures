@@ -95,9 +95,7 @@ class MaxHeap(Heap):
     # without relying on a language implementation detail?
     while (node.left and node.left.data > node.data) or (node.right and node.right.data > node.data):
       replacer = node.left if node.left.data > node.right.data else node.right
-      temp = node.data
-      node.data = replacer.data
-      replacer.data = temp
+      self.swapnodes(node, replacer)
       if replacer == node.left:
         node = node.left
       else:
@@ -118,9 +116,7 @@ class MinHeap(Heap):
     # Is there a better way to implement this method
     # without relying on a language implementation detail?
     while (node.parent) and (node.data < node.parent.data):
-      temp = node.data
-      node.data = node.parent.data
-      node.parent.data = temp
+      self.swapnodes(node, node.parent)
       node = node.parent
 
   def bubble_down(self, node):
@@ -131,9 +127,7 @@ class MinHeap(Heap):
     # without relying on a language implementation detail?
     while (node.left and node.left.data < node.data) or (node.right and node.right.data < node.data):
       replacer = node.left if node.left.data < node.right.data else node.right
-      temp = node.data
-      node.data = replacer.data
-      replacer.data = temp
+      self.swapnodes(node, replacer)
       if replacer == node.left:
         node = node.left
       else:
