@@ -65,6 +65,11 @@ class Heap(Tree):
       if not(node.left and node.right):
         return node
 
+  def swapnodes(self, node1, node2):
+    temp = node1.data
+    node1.data = node2.data
+    node2.data = temp
+
 class MaxHeap(Heap):
   heap_size = None
   def __init__(self, iterable=None, heap_size=None):
@@ -79,9 +84,7 @@ class MaxHeap(Heap):
     # Is there a better way to implement this method
     # without relying on a language implementation detail?
     while (node.parent) and (node.data > node.parent.data):
-      temp = node.data
-      node.data = node.parent.data
-      node.parent.data = temp
+      self.swapnodes(node, node.parent)
       node = node.parent
 
   def bubble_down(self, node):
