@@ -145,13 +145,18 @@ class MinHeap(Heap):
   def bubble_down(self, node):
     if len(self) < 2:
       return
-    # The while conditions below exploit python's Lazy evaluation principle
-    # Is there a better way to implement this method
-    # without relying on a language implementation detail?
-    while (node.left and node.left.data < node.data) or (node.right and node.right.data < node.data):
-      replacer = node.left if (node.left.data < node.right.data) else node.right
-      self.swapnodes(node, replacer)
-      if replacer == node.left:
-        node = node.left
-      else:
-        node = node.right
+    if len(self) == 2:
+      child = self.root.left if self.root.left else self.root.right
+      if child.data < self.root.data:
+        self.swapnodes(child, self.root)
+    else:
+      # The while conditions below exploit python's Lazy evaluation principle
+      # Is there a better way to implement this method
+      # without relying on a language implementation detail?
+      while (node.left and node.left.data < node.data) or (node.right and node.right.data < node.data):
+        replacer = node.left if (node.left.data < node.right.data) else node.right
+        self.swapnodes(node, replacer)
+        if replacer == node.left:
+          node = node.left
+        else:
+          node = node.right
