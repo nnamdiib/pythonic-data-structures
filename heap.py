@@ -70,6 +70,14 @@ class Heap(Tree):
     node1.data = node2.data
     node2.data = temp
 
+  def get_max_node(self):
+    n = self.root
+    for node in self:
+      if node.data > n.data:
+        n = node
+    return n
+
+
 class MaxHeap(Heap):
   heap_size = None
   def __init__(self, iterable=None, heap_size=None):
