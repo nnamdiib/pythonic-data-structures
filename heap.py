@@ -109,6 +109,12 @@ class MinHeap(Heap):
       self.heap_size = heap_size
     self = super().__init__(iterable, heap_type='min')
 
+  def maintain_heap_size(self):
+    if self.heap_size:
+      while len(self) > self.heap_size:
+        maximum_node = get_max_node(self)
+        self.delete(maximum_node)
+
   def bubble_up(self, node):
     if len(self) < 2:
       return
