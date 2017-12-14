@@ -92,6 +92,12 @@ class MaxHeap(Heap):
       self.heap_size = heap_size
     self = super().__init__(iterable, heap_type='max')
 
+  def maintain_heap_size(self):
+    if self.heap_size:
+      while len(self) > self.heap_size:
+        minimum_node = self.get_min_node()
+        self.delete(minimum_node)
+
   def bubble_up(self, node):
     if len(self) < 2:
       return
@@ -101,6 +107,7 @@ class MaxHeap(Heap):
     while (node.parent) and (node.data > node.parent.data):
       self.swapnodes(node, node.parent)
       node = node.parent
+    self.maintain_heap_size()
 
   def bubble_down(self, node):
     if len(self) < 2:
