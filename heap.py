@@ -127,7 +127,8 @@ class MinHeap(Heap):
   def maintain_heap_size(self):
     if self.heap_size:
       while len(self) > self.heap_size:
-        maximum_node = self.get_max_node(self)
+        maximum_node = self.get_max_node()
+        print("The maximum_node is,",  maximum_node,maximum_node.data)
         self.delete(maximum_node)
 
   def bubble_up(self, node):
@@ -139,6 +140,7 @@ class MinHeap(Heap):
     while (node.parent) and (node.data < node.parent.data):
       self.swapnodes(node, node.parent)
       node = node.parent
+    self.maintain_heap_size()
 
   def bubble_down(self, node):
     if len(self) < 2:
@@ -147,7 +149,7 @@ class MinHeap(Heap):
     # Is there a better way to implement this method
     # without relying on a language implementation detail?
     while (node.left and node.left.data < node.data) or (node.right and node.right.data < node.data):
-      replacer = node.left if node.left.data < node.right.data else node.right
+      replacer = node.left if (node.left.data < node.right.data) else node.right
       self.swapnodes(node, replacer)
       if replacer == node.left:
         node = node.left
