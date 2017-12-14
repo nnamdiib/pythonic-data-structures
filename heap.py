@@ -128,7 +128,6 @@ class MinHeap(Heap):
     if self.heap_size:
       while len(self) > self.heap_size:
         maximum_node = self.get_max_node()
-        print("The maximum_node is,",  maximum_node,maximum_node.data)
         self.delete(maximum_node)
 
   def bubble_up(self, node):
