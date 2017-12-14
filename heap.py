@@ -77,6 +77,13 @@ class Heap(Tree):
         n = node
     return n
 
+  def get_min_node(self):
+    n = self.root
+    for node in self:
+      if node.data < n.data:
+        n = node
+    return n
+
 
 class MaxHeap(Heap):
   heap_size = None
