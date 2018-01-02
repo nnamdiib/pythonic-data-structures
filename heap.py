@@ -117,9 +117,7 @@ class MaxHeap(Heap):
       if child.data > self.root.data:
         self.swapnodes(child, self.root)
     else:
-      # The while conditions below exploit python's Lazy evaluation principle
-      # Is there a better way to implement this method
-      # without relying on a language implementation detail?
+      # The 'while' condition exploits Boolean short-circuiting
       while (node.left and node.left.data > node.data) or (node.right and node.right.data > node.data):
         replacer = node.left if node.left.data > node.right.data else node.right
         self.swapnodes(node, replacer)
@@ -145,9 +143,7 @@ class MinHeap(Heap):
   def bubble_up(self, node):
     if len(self) < 2:
       return
-    # The while conditions below exploit python's Lazy evaluation principle
-    # Is there a better way to implement this method
-    # without relying on a language implementation detail?
+    # The 'while' condition exploits Boolean short-circuiting
     while (node.parent) and (node.data < node.parent.data):
       self.swapnodes(node, node.parent)
       node = node.parent
